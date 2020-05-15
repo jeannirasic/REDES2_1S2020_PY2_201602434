@@ -13,7 +13,7 @@ categories:
     Corresponde a sus siglas en inglés {% hl_text red %}Internet Control Message Protocol{% endhl_text %}. Como su nombre 
     lo dice, es el protocolo encargado del envío de los mensajes de internet. 
 </p>
-
+<!-- more --> 
 	
 {% image fancybox /assets/images/ICMP/img.png This is an example image %}
 
