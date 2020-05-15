@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Blog
+title: Jeannira
 subtitle: ''
 description: ''
 keywords:
@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://blogredes2.s3-website.us-east-2.amazonaws.com/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -98,4 +98,6 @@ theme: tranquilpeak
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  type: aws-s3
+  bucket: blogredes2
+  region: us-east-2
