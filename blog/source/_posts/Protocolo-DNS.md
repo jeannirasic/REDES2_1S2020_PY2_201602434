@@ -43,8 +43,189 @@ categories:
 </p>
 {% image fancybox /assets/images/DNS/arbol.jpg Estructura %}
 </br>
-
-<p>
-
-    
+</br>
+{% alert warning icon %}
+Para poder realizar este tutorial es necesario tener GNS3 instalado y haber configurado al GNS3VM
+{% endalert %}
+</br>
+<h2>Ejemplo de configuración de un servidor DNS en una red GNS3</h2>
+<p align="justify">
+    El primer paso es descargar el appliance de DNS del sitio oficial de GNS3.
 </p>
+</br>
+{% image fancybox /assets/images/DNS/1.png Paso 1 %}
+</br>
+<p align="justify">
+    Posteriormente, debemos importar el appliance a GNS3 seleccionando la opción de "Import appliance" en el menú de "file".
+</p>
+</br>
+{% image fancybox /assets/images/DNS/2.png Paso 2 %}
+</br>
+<p align="justify">
+    Seleccionamos el archivo que descargamos del appliance.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/3.png Paso 3 %}
+</br>
+<p align="justify">
+    Nos solicitará instalarla utilizando la máquina virtual de GNS3 y le damos en siguiente.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/4.png Paso 4 %}
+</br>
+<p align="justify">
+    Nos mostrará un ejemplo de como crear dominios asociados a ip. Es importante que guardemos este formato ya que nos servirá más adelante.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/5.png Paso 5 %}
+</br>
+<p align="justify">
+    Nos mostrará un mensaje de confirmación y seleccionamos "finish".
+</p>
+</br>
+{% image fancybox /assets/images/DNS/6.png Paso 6 %}
+</br>
+<p align="justify">
+    Luego podemos observar que en la sección de dispositivos finales, se ha agregado el servidor DNS.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/7.png Paso 7 %}
+</br>
+<p align="justify">
+    Lo arrastramos y colocamos en nuestro proyecto.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/8.png Paso 8 %}
+</br>
+<p align="justify">
+    Colocamos dos routers comunes y un etherswitch en la topología para efectos del ejemplo y realizamos las conexiones que se muestran a continuación.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/9.png Paso 9 %}
+</br>
+<p align="justify">
+    Le damos click derecho al servidor DNS y seleccionamos la opción de "Edit config"
+</p>
+</br>
+{% image fancybox /assets/images/DNS/10.png Paso 10 %}
+</br>
+<p align="justify">
+    Nos mostrará una configuración inicial y presionamos en guardar.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/11.png Paso 11 %}
+</br>
+<p align="justify">
+    Luego nos mostrará la configuración de las interfaces de DNS.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/12.png Paso 12 %}
+</br>
+<p align="justify">
+    Modificamos el archivo de configuración como se muestra a continuación.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/13.png Paso 13 %}
+</br>
+<p align="justify">
+    Procedemos a apagar el servidor.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/14.png Paso 14 %}
+</br>
+<p align="justify">
+    Lo volvemos a encender.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/15.png Paso 15 %}
+</br>
+<p align="justify">
+    Le damos click derecho nuevamente y seleccionamos la opción de "Custom console".
+</p>
+</br>
+{% image fancybox /assets/images/DNS/16.png Paso 16 %}
+</br>
+<p align="justify">
+    Se nos abrirá la consola del servidor.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/17.png Paso 17 %}
+</br>
+<p align="justify">
+    Ingresamos el comando mostrado abajo para validar las configuraciones realizadas.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:1 to:2 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/18.png Paso 18 %}
+</br>
+<p align="justify">
+    Agregamos una NAT de los dispositivos disponibles.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/19.png Paso 19 %}
+</br>
+<p align="justify">
+    Nos mostrara una opción para seleccionar el servidor. Seleccionamos el de la máquina virtual de GNS3.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/20.png Paso 20 %}
+</br>
+<p align="justify">
+    Conectamos la NAT al etherswitch.
+</p>
+</br>
+{% image fancybox /assets/images/DNS/21.png Paso 21 %}
+</br>
+<p align="justify">
+    Validamos la configuraciones haciendo ping a la NAT y a un dominio cualquiera. En este caso utilizamos google.com.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:4 to:7 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/22.png Paso 22 %}
+</br>
+{% image fancybox /assets/images/DNS/23.png Paso 23 %}
+</br>
+<p align="justify">
+    Modificamos el archivo donde estan los DNS existentes utilizando los siguientes comandos y guardamos los cambios.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:9 to:13 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/24.png Paso 24 %}
+</br>
+{% image fancybox /assets/images/DNS/25.png Paso 25 %}
+</br>
+{% image fancybox /assets/images/DNS/26.png Paso 26 %}
+</br>
+<p align="justify">
+    Luego, procedemos a configurar la ip del router 1 en la interfaz 0/0 utilizando los siguientes comandos.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:15 to:22 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/27.png Paso 27 %}
+</br>
+<p align="justify">
+    Luego, procedemos a configurar la ip del router 2 en la interfaz 0/0 utilizando los siguientes comandos.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:24 to:31 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/28.png Paso 28 %}
+</br>
+<p align="justify">
+    Finalmente, realizamos un ping desde el servidor para validar que se configuraciones de las ip se realizaron correctamente utilizando los siguientes comandos.
+</p>
+</br>
+{% include_code Comandos DNS lang:html from:33 to:36 DNS.cfg %}
+</br>
+{% image fancybox /assets/images/DNS/29.png Paso 29 %}
+</br>
+<p align="justify">
+    Puede ver todos los comandos utilizados a continuación.
+</p>
+</br>
+{% include_code Comandos DNS lang:html DNS.cfg %}
+</br>

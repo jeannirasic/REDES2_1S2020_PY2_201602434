@@ -67,31 +67,31 @@ Para poder realizar este tutorial es necesario haber creado un bucket en Amazon 
 {% endalert %}
 </br>
 <h2>Ejemplo de configuración de un dominio externo en Amazon Route 53</h2>
-<p>
+<p align="justify">
     Primero ingresamos en nuestra cuenta de AWS, ingresamos a la consola de aws y buscamos la opción de Route 53.
 </p>
 </br>
 {% image fancybox /assets/images/Route53/1.png Paso 1 %}
 </br>
-<p>
+<p align="justify">
     Se muestra un menú con opciones y seleccionamos la opción de "Get Started Now" en "DNS Management".
 </p>
 </br>
 {% image fancybox /assets/images/Route53/2.png Paso 2 %}
 </br>
-<p>
+<p align="justify">
     Del menú de la izquierda seleccionamos "Hosted zones" y seleccionamos la opción de "Create Hosted Zone".
 </p>
 </br>
 {% image fancybox /assets/images/Route53/3.png Paso 3 %}
 </br>
-<p>
+<p align="justify">
     Se mostrará una ventana similar y volvemos a seleccionar la opción de "Create hosted zone".
 </p>
 </br>
 {% image fancybox /assets/images/Route53/4.png Paso 4 %}
 </br>
-<p>
+<p align="justify">
     Se desplegará un menú del lado derecho y en él debemos ingresar el nombre de nuestro dominio creado previamente, ingresar opcionalmente un comentario y seleccionar la opción "Public Hosted Zone" del menú de opciones de "Type". Posteriormente, 
     presionamos el botón de "Create".
 </p>
@@ -100,26 +100,26 @@ Para poder realizar este tutorial es necesario haber creado un bucket en Amazon 
 </br>
 {% image fancybox /assets/images/Route53/6.png Paso 6 %}
 </br>
-<p>
+<p align="justify">
     Se nos mostrará la "Hosted zone" creada.
 </p>
 </br>
 {% image fancybox /assets/images/Route53/7.png Paso 7 %}
 </br>
-<p>
+<p align="justify">
     Después seleccionamos la opción de "Import zone file" e ingresamos el archivo que obtuvimos de nuestro proveedor de DNS.
 </p>
 </br>
 {% image fancybox /assets/images/Route53/8.png Paso 8 %}
 </br>
-<p>
+<p align="justify">
     Después de esto, se nos debería de crear un "Record Set" automáticamente o podemos crearlo manualmente. Y ahí seleccionamos
     el bucket que habiamos creado anteriormente. 
 </p>
 </br>
 {% image fancybox /assets/images/Route53/9.png  Paso 9 %}
 </br>
-<p>
+<p align="justify">
     Finalmente, se guardan los cambios y ya se puede ver nuestro sitio web con el dns configurado.
 </p>
 </br>
